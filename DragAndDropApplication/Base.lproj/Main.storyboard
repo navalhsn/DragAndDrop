@@ -716,13 +716,6 @@
                                     <constraint firstAttribute="height" constant="120" id="J1L-ym-tuj"/>
                                 </constraints>
                             </customView>
-                            <wkWebView wantsLayer="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lZn-1a-8Pz">
-                                <rect key="frame" x="264" y="0.0" width="216" height="150"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsJ-Fg-qdA">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="150"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="MqC-sV-WY0">
@@ -735,7 +728,7 @@
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="465" height="150"/>
-                                            <size key="maxSize" width="475" height="10000000"/>
+                                            <size key="maxSize" width="480" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
@@ -749,24 +742,60 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eB-8S-DMj">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="150"/>
+                                <clipView key="contentView" id="ANT-nu-EsH">
+                                    <rect key="frame" x="1" y="1" width="463" height="133"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lZn-1a-8Pz">
+                                            <rect key="frame" x="0.0" y="0.0" width="463" height="133"/>
+                                            <wkWebViewConfiguration key="configuration" userInterfaceDirectionPolicy="system">
+                                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                <wkPreferences key="preferences"/>
+                                            </wkWebViewConfiguration>
+                                        </wkWebView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="lZn-1a-8Pz" firstAttribute="top" secondItem="ANT-nu-EsH" secondAttribute="top" id="3cu-Yk-XnV"/>
+                                        <constraint firstAttribute="trailing" secondItem="lZn-1a-8Pz" secondAttribute="trailing" id="W6l-1R-5Xe"/>
+                                        <constraint firstItem="lZn-1a-8Pz" firstAttribute="top" secondItem="ANT-nu-EsH" secondAttribute="top" id="ZPs-MP-aVB"/>
+                                        <constraint firstAttribute="bottom" secondItem="lZn-1a-8Pz" secondAttribute="bottom" id="kKI-gA-fUK"/>
+                                        <constraint firstItem="lZn-1a-8Pz" firstAttribute="leading" secondItem="ANT-nu-EsH" secondAttribute="leading" id="rX7-gn-6ox"/>
+                                        <constraint firstAttribute="trailing" secondItem="lZn-1a-8Pz" secondAttribute="trailing" id="rvu-YV-SHz"/>
+                                        <constraint firstAttribute="bottom" secondItem="lZn-1a-8Pz" secondAttribute="bottom" id="xxc-rO-lzQ"/>
+                                        <constraint firstItem="lZn-1a-8Pz" firstAttribute="leading" secondItem="ANT-nu-EsH" secondAttribute="leading" id="yqN-MS-VqC"/>
+                                    </constraints>
+                                </clipView>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="YSN-p8-sgS">
+                                    <rect key="frame" x="1" y="134" width="463" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="pFG-Kp-20A">
+                                    <rect key="frame" x="464" y="1" width="15" height="133"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="RsJ-Fg-qdA" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="30e-aK-5Gv"/>
-                            <constraint firstAttribute="bottom" secondItem="lZn-1a-8Pz" secondAttribute="bottom" id="CiQ-yl-8FK"/>
-                            <constraint firstItem="lZn-1a-8Pz" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="D2R-jk-MYU"/>
+                            <constraint firstAttribute="trailing" secondItem="8eB-8S-DMj" secondAttribute="trailing" id="0YJ-Id-h4Z"/>
                             <constraint firstAttribute="trailing" secondItem="OeX-UO-Kj1" secondAttribute="trailing" id="H30-EN-rry"/>
-                            <constraint firstItem="lZn-1a-8Pz" firstAttribute="top" secondItem="OeX-UO-Kj1" secondAttribute="bottom" id="Qrc-N6-Zig"/>
-                            <constraint firstItem="RsJ-Fg-qdA" firstAttribute="top" secondItem="OeX-UO-Kj1" secondAttribute="bottom" id="T0M-GF-ILU"/>
-                            <constraint firstAttribute="trailing" secondItem="RsJ-Fg-qdA" secondAttribute="trailing" id="b4d-Mq-2CT"/>
-                            <constraint firstAttribute="trailing" secondItem="lZn-1a-8Pz" secondAttribute="trailing" id="bEL-QF-DPz"/>
+                            <constraint firstItem="RsJ-Fg-qdA" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="HNo-Mf-LBL"/>
+                            <constraint firstAttribute="bottom" secondItem="8eB-8S-DMj" secondAttribute="bottom" id="IpD-P0-QCh"/>
+                            <constraint firstItem="8eB-8S-DMj" firstAttribute="top" secondItem="OeX-UO-Kj1" secondAttribute="bottom" id="R0s-uZ-SJa"/>
+                            <constraint firstItem="8eB-8S-DMj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="XEb-aO-mq1"/>
+                            <constraint firstItem="RsJ-Fg-qdA" firstAttribute="top" secondItem="OeX-UO-Kj1" secondAttribute="bottom" id="duR-bc-L2K"/>
+                            <constraint firstAttribute="trailing" secondItem="RsJ-Fg-qdA" secondAttribute="trailing" id="fH9-4e-oP4"/>
                             <constraint firstItem="OeX-UO-Kj1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="kUi-cV-O01"/>
-                            <constraint firstAttribute="bottom" secondItem="RsJ-Fg-qdA" secondAttribute="bottom" id="pCj-ux-98l"/>
+                            <constraint firstAttribute="bottom" secondItem="RsJ-Fg-qdA" secondAttribute="bottom" id="qg2-GR-8Ww"/>
                             <constraint firstItem="OeX-UO-Kj1" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="uLb-nJ-cUY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dragDropView" destination="OeX-UO-Kj1" id="UxQ-tx-3so"/>
+                        <outlet property="textScrollView" destination="RsJ-Fg-qdA" id="xy2-du-i4P"/>
                         <outlet property="textView" destination="uFY-ab-15b" id="VUM-eo-Htv"/>
+                        <outlet property="webScrollView" destination="8eB-8S-DMj" id="0sh-VY-Mof"/>
                         <outlet property="webView" destination="lZn-1a-8Pz" id="ywd-WY-hCT"/>
                     </connections>
                 </viewController>

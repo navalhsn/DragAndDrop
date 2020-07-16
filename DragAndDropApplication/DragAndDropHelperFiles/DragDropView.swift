@@ -7,19 +7,12 @@
 //
 
 
-
 import Cocoa
 
 public final class DragDropView: NSView {
-    
-    // highlight the drop zone when mouse drag enters the drop view
+    // #MARK: Declarations
     fileprivate var highlight : Bool = false
-    
-    // check if the dropped file type is accepted
     fileprivate var fileTypeIsOk = false
-    
-  //  public var acceptedFileExtensions : [String] = []
-    
     public weak var delegate: DragDropViewDelegate?
     
     public required init?(coder: NSCoder) {
@@ -28,7 +21,6 @@ public final class DragDropView: NSView {
         if #available(OSX 10.13, *) {
             registerForDraggedTypes([NSPasteboard.PasteboardType.fileURL])
         } else {
-            // Fallback on earlier versions
             registerForDraggedTypes([NSPasteboard.PasteboardType("NSFilenamesPboardType")])
         }
     }
@@ -40,7 +32,6 @@ public final class DragDropView: NSView {
     public override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
-        // Drawing code here.
         if(NSAppKitVersion.current.rawValue < NSAppKitVersion.macOS10_10.rawValue) {
             NSColor.windowBackgroundColor.setFill()
         } else {
@@ -57,7 +48,6 @@ public final class DragDropView: NSView {
         let size = min(bounds.size.width - 8.0, bounds.size.height - 8.0);
         let width =  max(2.0, size / 32.0)
         let frame = NSMakeRect((bounds.size.width-size)/2.0, (bounds.size.height-size)/2.0, size, size)
-        
         NSBezierPath.defaultLineWidth = width
         
         // draw rounded corner square with dotted borders
@@ -75,18 +65,16 @@ public final class DragDropView: NSView {
         let offset = -size / 8.0
         
         arrowPath.move(to: NSMakePoint(bounds.size.width/2.0 - baseWidth, bounds.size.height/2.0 + baseHeight - offset))
-        
         arrowPath.line(to: NSMakePoint(bounds.size.width/2.0 + baseWidth, bounds.size.height/2.0 + baseHeight - offset))
         arrowPath.line(to: NSMakePoint(bounds.size.width/2.0 + baseWidth, bounds.size.height/2.0 - baseHeight - offset))
         arrowPath.line(to: NSMakePoint(bounds.size.width/2.0 + arrowWidth, bounds.size.height/2.0 - baseHeight - offset))
         arrowPath.line(to: NSMakePoint(bounds.size.width/2.0, bounds.size.height/2.0 - pointHeight - offset))
         arrowPath.line(to: NSMakePoint(bounds.size.width/2.0 - arrowWidth, bounds.size.height/2.0 - baseHeight - offset))
         arrowPath.line(to: NSMakePoint(bounds.size.width/2.0 - baseWidth, bounds.size.height/2.0 - baseHeight - offset))
-        
         arrowPath.fill()
     }
     
-    // MARK: - NSDraggingDestination
+    // #MARK: NSDraggingDestination
     public override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
         highlight = true
         fileTypeIsOk = isExtensionAcceptable(draggingInfo: sender)
@@ -105,7 +93,6 @@ public final class DragDropView: NSView {
     }
     
     public override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        // finished with dragging so remove any highlighting
         highlight = false
         self.setNeedsDisplay(self.bounds)
         
@@ -124,7 +111,7 @@ public final class DragDropView: NSView {
                 delegate?.dragDropView(self, droppedFilesWithURLs: sender.filePathURLs)
             }
         } else {
-            
+            // file type is not ok
         }
         
         return true
@@ -134,17 +121,6 @@ public final class DragDropView: NSView {
         if draggingInfo.filePathURLs.count == 0 {
             return false
         }
-        
-     //   for filePathURL in draggingInfo.filePathURLs {
-         //   let fileExtension = filePathURL.pathExtension.lowercased()
-            
-          //  if !acceptedFileExtensions.contains(fileExtension){
-          //      return false
-          //  }
-            
-     //       return true
-    //    }
-        
         return true
     }
     

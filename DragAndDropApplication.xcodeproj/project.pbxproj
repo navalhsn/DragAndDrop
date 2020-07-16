@@ -41,6 +41,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D628FE5C24C02DE400E2BB85 /* DragAndDropHelperFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D6CD2FC024BD6A32006009FB /* DragDropView.swift */,
+				D6CD2FBF24BD6A31006009FB /* NSDraggingInfo+FilePathURL.swift */,
+			);
+			path = DragAndDropHelperFiles;
+			sourceTree = "<group>";
+		};
+		D628FE5D24C02E0200E2BB85 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D6DE3BA724BCA80200B156A6 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		D6CD2FC324BDBD89006009FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,12 +86,11 @@
 		D6DE3BA424BCA80200B156A6 /* DragAndDropApplication */ = {
 			isa = PBXGroup;
 			children = (
-				D6CD2FC024BD6A32006009FB /* DragDropView.swift */,
-				D6CD2FBF24BD6A31006009FB /* NSDraggingInfo+FilePathURL.swift */,
 				D6DE3BA524BCA80200B156A6 /* AppDelegate.swift */,
-				D6DE3BA724BCA80200B156A6 /* ViewController.swift */,
-				D6DE3BA924BCA83900B156A6 /* Assets.xcassets */,
 				D6DE3BAB24BCA83900B156A6 /* Main.storyboard */,
+				D628FE5D24C02E0200E2BB85 /* ViewControllers */,
+				D628FE5C24C02DE400E2BB85 /* DragAndDropHelperFiles */,
+				D6DE3BA924BCA83900B156A6 /* Assets.xcassets */,
 				D6DE3BAE24BCA83900B156A6 /* Info.plist */,
 				D6DE3BAF24BCA83900B156A6 /* DragAndDropApplication.entitlements */,
 			);

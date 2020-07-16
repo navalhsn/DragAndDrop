@@ -18,7 +18,6 @@ extension NSDraggingInfo {
         if #available(OSX 10.13, *) {
             filenames = draggingPasteboard.propertyList(forType: NSPasteboard.PasteboardType("NSFilenamesPboardType")) as? [String]
         } else {
-            // Fallback on earlier versions
             filenames = draggingPasteboard.propertyList(forType: NSPasteboard.PasteboardType("NSFilenamesPboardType")) as? [String]
         }
         
@@ -28,7 +27,6 @@ extension NSDraggingInfo {
             }
             return urls
         }
-        
         return []
     }
 }
